@@ -2,17 +2,20 @@ import React from 'react';
 import Image from "next/image";
 import movieRequests from "../utils/movieRequests";
 import {useRouter} from "next/router"
+import Link from "next/link"
 
 function Header() {
     const router = useRouter()
     return (
         <div className="bg-gray-800 text-gray-200 flex flex-col items-center p-6 select-none sm:flex-row justify-between">
+            <Link href="/">
             <Image
                 src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMDB_Logo_2016.svg"
                 width={85}
                 height={75}
                 className="cursor-pointer active:brightness-110"
             />
+                </Link>
             <ul className="flex flex-row">
             {Object.entries(movieRequests).map(([key, { title, url }]) => (
                 <li className="mx-2" key={key}>
